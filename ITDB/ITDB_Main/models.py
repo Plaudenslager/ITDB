@@ -12,6 +12,10 @@ class Play(models.Model):
     title = models.CharField(max_length=100)
     year_written = models.IntegerField()
 
+class People(models.Model):
+    name = models.CharField(max_length=40)
+    short_bio = models.TextField()
+
 class Production(models.Model):
     start_date = models.DateField()
     end_date = models.DateField()
@@ -20,6 +24,7 @@ class Production(models.Model):
     theater = models.ForeignKey(Theater)
 
 class Cast(models.Model):
-    person = models.ForeignKey()
+    person = models.ForeignKey(People)
     character = models.CharField(max_length=40)
     production = models.ForeignKey(Production)
+    billed_as = models.CharField(max_length = 40)
