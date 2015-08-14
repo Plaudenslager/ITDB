@@ -8,7 +8,7 @@ class Theater(models.Model):
     state_or_province = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
     def __unicode__(self):
-        return "{0}: {1}, {2}".format(self.name, self.city, self.state)
+        return "{0}: {1}, {2}".format(self.name, self.city, self.state_or_province)
 
 class Play(models.Model):
     title = models.CharField(max_length=100)
