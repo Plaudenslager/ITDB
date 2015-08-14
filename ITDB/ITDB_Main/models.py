@@ -30,6 +30,7 @@ class Production(models.Model):
     theater = models.ForeignKey(Theater)
     def __unicode__(self):
         return "{0}, {1} ({2} - {3})".format(Play(self.play), Theater(self.theater), self.start_date, self.end_date)
+    #TODO: Fix call to Play and Theater in Production unicode
 
 class Cast(models.Model):
     person = models.ForeignKey(People)
