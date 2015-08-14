@@ -13,7 +13,13 @@ class Play(models.Model):
     year_written = models.IntegerField()
 
 class Production(models.Model):
-    start_year = models.IntegerField()
-    end_year = models.IntegerField()
+    start_date = models.DateField()
+    end_date = models.DateField()
     production_company = models.CharField(max_length=100)
+    play = models.ForeignKey(Play)
+    theater = models.ForeignKey(Theater)
 
+class Cast(models.Model):
+    person = models.ForeignKey()
+    character = models.CharField(max_length=40)
+    production = models.ForeignKey(Production)
