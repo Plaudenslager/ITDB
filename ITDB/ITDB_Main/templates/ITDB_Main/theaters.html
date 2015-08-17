@@ -1,7 +1,7 @@
 {% if all_theaters_by_alpha %}
     <ul>
         {% for theater in all_theaters_by_alpha %}
-            <li> <a href="/theater/{{theater.id}}/">{{theater.name}}</a></li>
+            <li> <a href="/main/theater/{{theater.id}}/">{{theater.name}}</a></li>
         {% endfor %}
     </ul>
 {% else %}
