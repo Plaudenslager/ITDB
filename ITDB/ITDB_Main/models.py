@@ -22,6 +22,7 @@ class People(models.Model):
     def __unicode__(self):
         return self.name
 
+# A production is defined as a Play that ran at a particular Theater between given Dates
 class Production(models.Model):
     start_date = models.DateField()
     end_date = models.DateField()
@@ -32,8 +33,10 @@ class Production(models.Model):
         return "{0}, {1} ({2} - {3})".format(Play(self.play), Theater(self.theater), self.start_date, self.end_date)
     #TODO: Fix call to Play and Theater in Production unicode
 
+# A cast is defined as the list of People involved in a particular Production
 class Cast(models.Model):
     person = models.ForeignKey(People)
     character = models.CharField(max_length=40)
     production = models.ForeignKey(Production)
     billed_as = models.CharField(max_length = 40)
+    #TODO: Create a unicode function for Cast object
