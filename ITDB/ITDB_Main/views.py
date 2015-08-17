@@ -1,6 +1,6 @@
 from django.http import Http404
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.template import RequestContext, loader
 from .models import Theater
 
@@ -15,10 +15,8 @@ def theaters(request):
     return render(request, 'ITDB_Main/theaters.html',context)
 
 def theater_detail(request, theater_id):
-    try:
-        theater = Theater.objects.get(pk=theater_id)
-    except Theater.DoesNotExist:
-        raise Http404("Theater does not exist")
+
+    theater = get_object_or_404(Theater, pk=theater_id)
 
     return render(request, 'ITDB_Main/theater_detail.html', {'theater' : theater})
 
