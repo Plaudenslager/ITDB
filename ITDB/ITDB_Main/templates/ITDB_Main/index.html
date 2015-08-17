@@ -1,0 +1,9 @@
+{% if all_theaters_by_alpha %}
+    <ul>
+        {% for theater in all_theaters_by_alpha %}
+            <li> <a href="/theater/{{theater.id}}/">{{theater.name}}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No theaters are available</p>
+{% endif %}
