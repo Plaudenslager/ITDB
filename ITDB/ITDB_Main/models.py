@@ -30,8 +30,7 @@ class Production(models.Model):
     play = models.ForeignKey(Play)
     theater = models.ForeignKey(Theater)
     def __unicode__(self):
-        return "{0}, {1} ({2} - {3})".format(Play(self.play), Theater(self.theater), self.start_date, self.end_date)
-    #TODO: Fix call to Play and Theater in Production unicode
+        return "{0}, {1} - {2} :{3} - {4}".format(self.play.title, self.theater.name, self.theater.city, self.start_date, self.end_date)
 
 # A cast is defined as the list of People involved in a particular Production
 class Cast(models.Model):
