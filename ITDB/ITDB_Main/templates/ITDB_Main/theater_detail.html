@@ -4,6 +4,7 @@
 <p>{{ theater.country }}</p>
 <ul>
 {% for production in theater.production_set.all %}
-    <li><em>{{ production.play.title }}</em> : {{ production.start_date }} - {{ production.end_date}}</li>
+    <li><em>{{ production.play.title }}</em> : {{production.production_company}} : {{ production.start_date }} - {{ production.end_date}}</li>
 {% endfor %}
 </ul>
+#TODO: add href tags to the play title and production company to link to those pages
