@@ -1,7 +1,6 @@
-from django.http import Http404
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
-from django.template import RequestContext, loader
+from django.template import RequestContext
 from .models import Theater
 
 # Default first page.  Should be the search page.

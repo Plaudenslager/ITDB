@@ -1,1 +1,9 @@
-{{ theater }}
+<h1>{{ theater.name }}</h1>
+<p>{{ theater.street_address }}</p>
+<p>{{ theater.city_or_province }}, {{ theater.state }}</p>
+<p>{{ theater.country }}</p>
+<ul>
+{% for production in theater.production_set.all %}
+    <li>{{ production }}</li>
+{% endfor %}
+</ul>
