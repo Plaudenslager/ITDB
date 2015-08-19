@@ -1,0 +1,9 @@
+{% if all_plays_by_alpha %}
+    <ul>
+        {% for play in all_plays_by_alpha %}
+            <li> <a href="/main/play/{{play.id}}/">{{play.title}}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No plays are available</p>
+{% endif %}

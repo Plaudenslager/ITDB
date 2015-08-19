@@ -13,5 +13,8 @@ urlpatterns = [
     # ex: /main/people/
     # ex: /main/people/1
     # ex: /main/play/
+    url(r'^play/$', views.plays, name='plays'),
     # ex: /main/play/1
+    url(r'^play/(?P<play_id>[0-9]+)/$', views.play_detail, name='plays'),
+
 ]
