@@ -8,6 +8,10 @@ def index(request):
     return render(request, 'ITDB_Main/index.html')
 
 # page for Theaters & theater details.  Will show the details about a theater, and a list of Productions.
+# TODO: Add ability to group by city
+# TODO: Add index to jump to particular starting letter
+# TODO: Add ability to jump to city
+# TODO: Add images of theaters
 def theaters(request):
     all_theaters_by_alpha = Theater.objects.order_by('name')
     context = RequestContext(request, {'all_theaters_by_alpha': all_theaters_by_alpha})
@@ -45,3 +49,4 @@ def production(request, play_id):
     return render(request, 'ITDB_Main/plays.html',context)
 
 #TODO: add view for production companies
+#TODO: add a search field to the index.html page (maybe to every page?)

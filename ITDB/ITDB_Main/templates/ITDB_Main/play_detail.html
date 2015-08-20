@@ -1,4 +1,7 @@
 <h1>{{ play.title }}</h1>
+<h2>Synopisis:</h2>
+{{play.synopsis}}
+<h2>All productions of {{play.title}}:</h2>
 
 <ul>
 {% for production in play.production_set.all %}

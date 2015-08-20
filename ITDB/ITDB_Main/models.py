@@ -30,6 +30,7 @@ class Production(models.Model):
     production_company = models.CharField(max_length=100)
     play = models.ForeignKey(Play)
     theater = models.ForeignKey(Theater)
+    notes = models.TextField(blank=True)
     def __unicode__(self):
         return "{0}, {1} - {2} :{3} - {4}".format(self.play.title, self.theater.name, self.theater.city, self.start_date, self.end_date)
 
