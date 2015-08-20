@@ -38,7 +38,11 @@ class Cast(models.Model):
     person = models.ForeignKey(People)
     character = models.CharField(max_length=40)
     production = models.ForeignKey(Production)
-    billed_as = models.CharField(max_length = 40)
+    billed_as = models.CharField(max_length = 40, blank=True)
+    is_director = models.BooleanField(default=False)
+    is_writer = models.BooleanField(default=False)
+    is_producer = models.BooleanField(default=False)
+
     #TODO: Create a unicode function for Cast object
 
 #TODO: Add class for production companies
