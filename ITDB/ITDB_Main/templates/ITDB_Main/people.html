@@ -1,0 +1,9 @@
+{% if all_people_by_alpha %}
+    <ul>
+        {% for person in all_people_by_alpha %}
+            <li> <a href="/main/person/{{person.id}}/">{{person.name}}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No people are available</p>
+{% endif %}

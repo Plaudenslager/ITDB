@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
 from django.template import RequestContext
-from .models import Theater, Play
+from .models import Theater, Play, People
 
 # Default first page.  Should be the search page.
 def index(request):
@@ -20,8 +20,11 @@ def theater_detail(request, theater_id):
     return render(request, 'ITDB_Main/theater_detail.html', {'theater' : theater})
 
 # page for People
-def person(request):
-    return HttpResponse("Page showing a single person - e.g. actor, director, writer, followed by a list of Productions")
+def people(request):
+    all_people_by_alpha = People.objects.order_by('name')
+    context = RequestContext(request, {'all_people_by_alpha': all_people_by_alpha})
+    return render(request, 'ITDB_Main/people.html',context)
+    #TODO: Fix people view so that names are sorted by last name, rather than full name
 
 # page for Plays
 def plays(request):
