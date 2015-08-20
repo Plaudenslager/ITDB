@@ -38,3 +38,5 @@ def play_detail(request, play_id):
 # page for Productions
 def production(request):
     return HttpResponse("Page showing a single production, with details about theater and play, followed by a list of People")
+
+#TODO: add view for production companies

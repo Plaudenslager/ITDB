@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 class Theater(models.Model):
     name = models.CharField(max_length=100)
-    street_address = models.CharField(max_length=40)
+    street_address = models.CharField(max_length=40, blank=True)
     city = models.CharField(max_length=40)
     state_or_province = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
@@ -12,13 +12,14 @@ class Theater(models.Model):
 
 class Play(models.Model):
     title = models.CharField(max_length=100)
-    year_written = models.IntegerField()
+    year_written = models.IntegerField(blank=True)
+    synopsis = models.TextField(blank=True)
     def __unicode__(self):
         return "{0} ({1})".format(self.title, self.year_written)
 
 class People(models.Model):
     name = models.CharField(max_length=40)
-    short_bio = models.TextField()
+    short_bio = models.TextField(blank=True)
     def __unicode__(self):
         return self.name
 
@@ -39,3 +40,5 @@ class Cast(models.Model):
     production = models.ForeignKey(Production)
     billed_as = models.CharField(max_length = 40)
     #TODO: Create a unicode function for Cast object
+
+#TODO: Add class for production companies
