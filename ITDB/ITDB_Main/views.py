@@ -5,7 +5,7 @@ from .models import Theater, Play, People
 
 # Default first page.  Should be the search page.
 def index(request):
-    return HttpResponse("Hello, world. You're at the ITDB_Main index.  This is where you will be able to search.")
+    return render(request, 'ITDB_Main/index.html')
 
 # page for Theaters & theater details.  Will show the details about a theater, and a list of Productions.
 def theaters(request):
@@ -39,7 +39,9 @@ def play_detail(request, play_id):
     return render(request, 'ITDB_Main/play_detail.html', {'play' : play})
 
 # page for Productions
-def production(request):
-    return HttpResponse("Page showing a single production, with details about theater and play, followed by a list of People")
+def production(request, play_id):
+    all_plays_by_alpha = Play.objects.order_by('title')
+    context = RequestContext(request, {'all_plays_by_alpha': all_plays_by_alpha})
+    return render(request, 'ITDB_Main/plays.html',context)
 
 #TODO: add view for production companies

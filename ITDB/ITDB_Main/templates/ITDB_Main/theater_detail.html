@@ -2,9 +2,9 @@
 <p>{{ theater.street_address }}</p>
 <p>{{ theater.city }}, {{ theater.state_or_province }}</p>
 <p>{{ theater.country }}</p>
+<h2>All productions at this theater</h2>
 <ul>
 {% for production in theater.production_set.all %}
     <li><em><a href="/main/play/{{production.play.id}}/">{{ production.play.title }}</a></em> : {{production.production_company}} : {{ production.start_date }} - {{ production.end_date}}</li>
 {% endfor %}
 </ul>
-#TODO: add href tags to the play title and production company to link to those pages
