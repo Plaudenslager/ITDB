@@ -5,6 +5,6 @@
 
 <ul>
 {% for production in play.production_set.all %}
-    <li><a href="/main/theater/{{production.theater.id}}/">{{ production.theater.name }}</a> ({{ production.theater.city }}) : {{production.production_company}} : {{ production.start_date }} - {{ production.end_date}}</li>
+    <li><a href="/main/production_detail/{{production.id}}/">Details</a> | <a href="/main/theater/{{production.theater.id}}/">{{ production.theater.name }}</a> ({{ production.theater.city }}) : {{production.production_company}} : {{ production.start_date }} - {{ production.end_date}}</li>
 {% endfor %}
 </ul>

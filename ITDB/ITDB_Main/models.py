@@ -4,7 +4,7 @@ from django.db import models
 class Theater(models.Model):
     name = models.CharField(max_length=100)
     street_address = models.CharField(max_length=40, blank=True)
-    city = models.CharField(max_length=40)
+    city = models.CharField(max_length=40, blank=True)
     state_or_province = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
     def __unicode__(self):
@@ -32,7 +32,7 @@ class Production(models.Model):
     theater = models.ForeignKey(Theater)
     notes = models.TextField(blank=True)
     def __unicode__(self):
-        return "{0}, {1} - {2} :{3} - {4}".format(self.play.title, self.theater.name, self.theater.city, self.start_date, self.end_date)
+        return "{0} at {1} ({2}) from {3} to {4}".format(self.play.title, self.theater.name, self.theater.city, self.start_date, self.end_date)
 
 # A cast is defined as the list of People involved in a particular Production
 class Cast(models.Model):
