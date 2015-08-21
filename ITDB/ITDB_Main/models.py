@@ -16,7 +16,7 @@ class Play(models.Model):
     year_written = models.IntegerField(blank=True)
     synopsis = models.TextField(blank=True)
     def __unicode__(self):
-        return "{0} ({1})".format(self.title, self.year_written)
+        return self.title
 
 class People(models.Model):
     name = models.CharField(max_length=40)
@@ -48,6 +48,8 @@ class Cast(models.Model):
     character = models.CharField(max_length=40)
     production = models.ForeignKey(Production)
     billed_as = models.CharField(max_length = 40, blank=True)
+    def __unicode__(self):
+        return "{0} in {1} at The {2} ({3}), played by {4}".format(self.character, self.production.play.title, self.production.theater.name, self.production.theater.city, self.person)
 
 # A crew is defined as the list of off-stage People working on a particular Production
 class Crew(models.Model):
