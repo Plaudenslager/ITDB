@@ -14,6 +14,7 @@ urlpatterns = [
     # ex: /main/people/
     url(r'^people/$', views.people, name='people'),
     # ex: /main/people/1
+    url(r'^people/(?P<person_id>[0-9]+)/$', views.person_detail, name='people'),
     # ex: /main/play/
     url(r'^play/$', views.plays, name='plays'),
     # ex: /main/play/1

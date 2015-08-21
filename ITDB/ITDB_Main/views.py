@@ -30,6 +30,12 @@ def people(request):
     return render(request, 'ITDB_Main/people.html',context)
     #TODO: Fix people view so that names are sorted by last name, rather than full name
 
+def person_detail(request, person_id):
+
+    person = get_object_or_404(People, pk=person_id)
+
+    return render(request, 'ITDB_Main/person_detail.html', {'person' : person})
+
 # page for Plays
 def plays(request):
     all_plays_by_alpha = Play.objects.order_by('title')

@@ -5,11 +5,10 @@
 
 <ul>
 {% for role in person.cast_set.all %}
-    // Play | Theater (City) | Character | year
     <li><em><a href="/main/production/{{role.production.id}}/">{{ role.production.play.title }}</a></em> |
         <a href="/main/theater/{{role.production.theater.id}}/">{{ role.production.theater.name }} ({{ role.production.theater.city }})</a> |
         {{ role.character }} |
-        {{ role.
+        {{ role.production.display_year }}
     </li>
 {% endfor %}
 </ul>

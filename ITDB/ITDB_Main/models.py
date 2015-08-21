@@ -33,10 +33,10 @@ class Production(models.Model):
     theater = models.ForeignKey(Theater)
     notes = models.TextField(blank=True)
     def display_year(self):
-        start = self.start_date.year()
-        end = self.end_date.year()
+        start = self.start_date.year
+        end = self.end_date.year
         if end == start:
-            return str(start)
+            return "{0}".format(start)
         else:
             return "{0} - {1}".format(start, end)
     def __unicode__(self):
