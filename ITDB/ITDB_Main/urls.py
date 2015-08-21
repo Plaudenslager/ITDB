@@ -9,6 +9,7 @@ urlpatterns = [
     # ex: /main/theater/1/
     url(r'^theater/(?P<theater_id>[0-9]+)/$', views.theater_detail, name='theaters'),
     # ex: /main/production/
+    url(r'^production/$', views.productions, name='productions'),
     # ex: /main/production/1
     url(r'^production/(?P<production_id>[0-9]+)/$', views.production_detail, name='productions'),
     # ex: /main/people/

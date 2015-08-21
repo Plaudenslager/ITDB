@@ -49,6 +49,11 @@ def play_detail(request, play_id):
     return render(request, 'ITDB_Main/play_detail.html', {'play' : play})
 
 # page for Productions
+def productions(request):
+    all_productions_by_date = Production.objects.order_by('-start_date')
+    context = RequestContext(request, {'all_productions_by_date': all_productions_by_date})
+    return render(request, 'ITDB_Main/productions.html',context)
+
 def production_detail(request, production_id):
 
     production = get_object_or_404(Production, pk=production_id)

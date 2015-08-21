@@ -40,7 +40,7 @@ class Production(models.Model):
         else:
             return "{0} - {1}".format(start, end)
     def __unicode__(self):
-        return "{0} at The {1} ({2}) : {3}".format(self.play.title, self.theater.name, self.theater.city, self.display_year)
+        return "{0} at The {1} ({2}) : {3}".format(self.play.title, self.theater.name, self.theater.city, self.start_date.year)
 
 # A cast is defined as the list of People playing characters in a particular Production
 class Cast(models.Model):

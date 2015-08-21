@@ -1,0 +1,10 @@
+<h1>All Productions</h1>
+{% if all_productions_by_date %}
+    <ul>
+        {% for production in all_productions_by_date %}
+            <li> <a href="/main/production/{{production.id}}/">{{production}}</a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No productions are available</p>
+{% endif %}
