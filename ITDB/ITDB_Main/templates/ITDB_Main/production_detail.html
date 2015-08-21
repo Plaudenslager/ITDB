@@ -7,7 +7,7 @@ Produced by: {{ production.production_company }}</p>
 Directed by:
 <h2>Cast</h2>
 <ul>
-{% for cast in production.cast_set.exclude(is_director__exact = True) %}
+{% for cast in production.cast_set.all %}
     <li><em>{{ cast.character }}</em> : <a href="/main/person/{{cast.person.id}}/">{{ cast.person.name }}</a>
     {% if cast.billed_as %}
          (billed as {{ cast.billed_as }})

@@ -1,4 +1,5 @@
 from django.db import models
+import datetime
 
 # Create your models here.
 class Theater(models.Model):
@@ -31,6 +32,13 @@ class Production(models.Model):
     play = models.ForeignKey(Play)
     theater = models.ForeignKey(Theater)
     notes = models.TextField(blank=True)
+    def display_year(self):
+        start = self.start_date.year()
+        end = self.end_date.year()
+        if end == start:
+            return str(start)
+        else:
+            return "{0} - {1}".format(start, end)
     def __unicode__(self):
         return "{0} at {1} ({2}) from {3} to {4}".format(self.play.title, self.theater.name, self.theater.city, self.start_date, self.end_date)
 
