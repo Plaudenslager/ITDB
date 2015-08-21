@@ -4,8 +4,8 @@ from django.db import models
 class Theater(models.Model):
     name = models.CharField(max_length=100)
     street_address = models.CharField(max_length=40, blank=True)
-    city = models.CharField(max_length=40, blank=True)
-    state_or_province = models.CharField(max_length=50)
+    city = models.CharField(max_length=40)
+    state_or_province = models.CharField(max_length=50, blank=True)
     country = models.CharField(max_length=50)
     def __unicode__(self):
         return "{0}: {1}, {2}".format(self.name, self.city, self.state_or_province)
