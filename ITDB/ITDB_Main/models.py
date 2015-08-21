@@ -34,16 +34,20 @@ class Production(models.Model):
     def __unicode__(self):
         return "{0} at {1} ({2}) from {3} to {4}".format(self.play.title, self.theater.name, self.theater.city, self.start_date, self.end_date)
 
-# A cast is defined as the list of People involved in a particular Production
+# A cast is defined as the list of People playing characters in a particular Production
 class Cast(models.Model):
     person = models.ForeignKey(People)
     character = models.CharField(max_length=40)
     production = models.ForeignKey(Production)
     billed_as = models.CharField(max_length = 40, blank=True)
+
+# A crew is defined as the list of off-stage People working on a particular Production
+class Crew(models.Model):
+    person = models.ForeignKey(People)
+    job = models.CharField(max_length=40)
+    production = models.ForeignKey(Production)
     is_director = models.BooleanField(default=False)
     is_writer = models.BooleanField(default=False)
     is_producer = models.BooleanField(default=False)
-
-    #TODO: Create a unicode function for Cast object
 
 #TODO: Add class for production companies

@@ -10,6 +10,7 @@ urlpatterns = [
     url(r'^theater/(?P<theater_id>[0-9]+)/$', views.theater_detail, name='theaters'),
     # ex: /main/production/
     # ex: /main/production/1
+    url(r'^production/(?P<production_id>[0-9]+)/$', views.production_detail, name='productions'),
     # ex: /main/people/
     url(r'^people/$', views.people, name='people'),
     # ex: /main/people/1

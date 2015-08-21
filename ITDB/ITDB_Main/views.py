@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404, render
 from django.template import RequestContext
-from .models import Theater, Play, People
+from .models import Theater, Play, People, Production
 
 # Default first page.  Should be the search page.
 def index(request):
@@ -43,10 +43,11 @@ def play_detail(request, play_id):
     return render(request, 'ITDB_Main/play_detail.html', {'play' : play})
 
 # page for Productions
-def production(request, play_id):
-    all_plays_by_alpha = Play.objects.order_by('title')
-    context = RequestContext(request, {'all_plays_by_alpha': all_plays_by_alpha})
-    return render(request, 'ITDB_Main/plays.html',context)
+def production_detail(request, production_id):
+
+    production = get_object_or_404(Production, pk=production_id)
+
+    return render(request, 'ITDB_Main/production_detail.html', {'production' : production})
 
 #TODO: add view for production companies
 #TODO: add a search field to the index.html page (maybe to every page?)
