@@ -62,3 +62,4 @@ def production_detail(request, production_id):
 
 #TODO: add view for production companies
 #TODO: add a search field to the index.html page (maybe to every page?)
+#TODO: use the URL tag in HTML pages to avoid hard-coding urls
