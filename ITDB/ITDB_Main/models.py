@@ -20,7 +20,7 @@ class Play(models.Model):
 class People(models.Model):
     name = models.CharField(max_length=40)
     short_bio = models.TextField(blank=True)
-    headshot = models.ImageField()
+    headshot = models.ImageField(blank=True)
     def __unicode__(self):
         return self.name
 
