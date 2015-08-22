@@ -21,6 +21,7 @@ class Play(models.Model):
 class People(models.Model):
     name = models.CharField(max_length=40)
     short_bio = models.TextField(blank=True)
+    headshot = models.ImageField()
     def __unicode__(self):
         return self.name
 
@@ -80,3 +81,4 @@ class Theater_pictures(models.Model):
 
 
 #TODO: Add class for production companies
+#TODO: Add class for musical numbers, connect them to plays
