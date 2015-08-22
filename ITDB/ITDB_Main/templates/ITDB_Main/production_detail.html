@@ -19,4 +19,11 @@ Directed by:
     </li>
 {% endfor %}
 </ul>
+
+<h2>Crew</h2>
+<ul>
+{% for crew in production.crew_set.all %}
+    <li><em>{{ crew.job }}</em> : <a href="/main/people/{{crew.person.id}}/">{{ crew.person.name }}</a></li>
+{% endfor %}
+</ul>
 {% endblock %}

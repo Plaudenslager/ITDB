@@ -59,6 +59,7 @@ class Crew(models.Model):
     is_director = models.BooleanField(default=False)
     is_writer = models.BooleanField(default=False)
     is_producer = models.BooleanField(default=False)
+    #TODO: Add crew listing to productions
 
 class Theater_pictures(models.Model):
     image = models.ImageField()
