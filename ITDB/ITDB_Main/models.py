@@ -8,6 +8,7 @@ class Theater(models.Model):
     city = models.CharField(max_length=40)
     state_or_province = models.CharField(max_length=50, blank=True)
     country = models.CharField(max_length=50)
+    primary_photo = models.ForeignKey(Theater_pictures)
     def __unicode__(self):
         return "{0}: {1}, {2}".format(self.name, self.city, self.state_or_province)
 
@@ -59,5 +60,24 @@ class Crew(models.Model):
     is_director = models.BooleanField(default=False)
     is_writer = models.BooleanField(default=False)
     is_producer = models.BooleanField(default=False)
+
+class Theater_pictures(models.Model):
+    image = models.ImageField()
+    theater = models.ForeignKey(Theater)
+
+# kinds of photos:
+    # headshots (person)
+    # scenes (several persons)
+    # theaters
+    # playbills
+
+# each person, theater, play, or production can have multiple pictures, but one primary picture
+# people will use headshots and scenes
+# plays will use ?
+# productions will use scenes and playbills
+# theaters will use only theater pictures
+
+# Want to target images at average of 20KB each
+
 
 #TODO: Add class for production companies
