@@ -20,7 +20,7 @@ class Play(models.Model):
 class People(models.Model):
     name = models.CharField(max_length=40)
     short_bio = models.TextField(blank=True)
-    headshot = models.ImageField(blank=True)
+    headshot = models.ImageField(blank=True, upload_to='photos')
     def __unicode__(self):
         return self.name
 
@@ -61,7 +61,7 @@ class Crew(models.Model):
     is_producer = models.BooleanField(default=False)
 
 class Theater_pictures(models.Model):
-    image = models.ImageField()
+    image = models.ImageField(blank=True, upload_to='photos')
     theater = models.ForeignKey(Theater)
 
 # kinds of photos:
