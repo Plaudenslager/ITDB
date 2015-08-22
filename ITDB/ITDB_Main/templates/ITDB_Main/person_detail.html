@@ -2,6 +2,11 @@
 {% block content %}
 
 <h1>{{ person.name }}</h1>
+{% if person.headshot %}
+    <image>{{ person.headshot.url }} </image>
+{% else %}
+    <p>(No image available)</p>
+{% endif %}
 
 <h2>Biography:</h2>
 {{person.short_bio}}
