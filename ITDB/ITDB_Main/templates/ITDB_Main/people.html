@@ -1,3 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+
 <h1>All People</h1>
 {% if all_people_by_alpha %}
     <ul>
@@ -8,3 +11,5 @@
 {% else %}
     <p>No people are available</p>
 {% endif %}
+
+{% endblock %}

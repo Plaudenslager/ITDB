@@ -1,3 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+
 <h1>All Productions</h1>
 {% if all_productions_by_date %}
     <ul>
@@ -8,3 +11,5 @@
 {% else %}
     <p>No productions are available</p>
 {% endif %}
+
+{% endblock %}

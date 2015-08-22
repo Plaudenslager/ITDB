@@ -1,3 +1,6 @@
+{% extends "base.html" %}
+{% block content %}
+
 <H1>All Plays</H1>
 {% if all_plays_by_alpha %}
     <ul>
@@ -8,3 +11,5 @@
 {% else %}
     <p>No plays are available</p>
 {% endif %}
+
+{% endblock %}
