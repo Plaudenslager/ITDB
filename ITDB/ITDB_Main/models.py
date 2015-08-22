@@ -8,7 +8,6 @@ class Theater(models.Model):
     city = models.CharField(max_length=40)
     state_or_province = models.CharField(max_length=50, blank=True)
     country = models.CharField(max_length=50)
-    primary_photo = models.ForeignKey(Theater_pictures)
     def __unicode__(self):
         return "{0}: {1}, {2}".format(self.name, self.city, self.state_or_province)
 
