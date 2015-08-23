@@ -11,8 +11,8 @@
     <p>(No image available)</p>
 {% endif %}
 
-<p>MEDIA_ROOT: {% settings.MEDIA_ROOT %}</p>
-<p>MEDIA_URL: {% settings.MEDIA_URL %}</p>
+<p>MEDIA_ROOT: {{ settings.MEDIA_ROOT }}</p>
+<p>MEDIA_URL: {{ settings.MEDIA_URL }}</p>
 
 <h2>Biography:</h2>
 {{person.short_bio}}
