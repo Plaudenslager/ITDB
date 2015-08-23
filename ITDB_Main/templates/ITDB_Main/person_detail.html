@@ -3,7 +3,9 @@
 
 <h1>{{ person.name }}</h1>
 {% if person.headshot %}
-    <image src={{ person.headshot.url }}, alt="photo of "{{person.name}}></image>
+    <image src={{ person.headshot.path }}, alt="photo of "{{person.name}}></image>
+image url: {{person.headhsot.url}}
+image path: {{person.headshot.path}}
 {% else %}
     <p>(No image available)</p>
 {% endif %}
