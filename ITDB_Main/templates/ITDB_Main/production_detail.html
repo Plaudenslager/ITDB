@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1><em>{{ production.play.title }}</em> at {{ production.theater.name }} ({{ production.theater.city }}) from {{ production.start_date }} to {{ production.end_date }}</h1>
+Produced by: {{ production.production_company }}</p>
+Production year: {{production.display_year }}</p>
+{% if production.notes %}
+    <h2>Notes</h2>
+    {{ production.notes }}</p>
+{% endif %}
+Directed by:
+<h2>Cast</h2>
+<ul>
+{% for cast in production.cast_set.all %}
+    <li><em>{{ cast.character }}</em> : <a href="/main/people/{{cast.person.id}}/">{{ cast.person.name }}</a>
+    {% if cast.billed_as %}
+         (billed as {{ cast.billed_as }})
+        {% endif %}
+    </li>
+{% endfor %}
+</ul>
+
+<h2>Crew</h2>
+<ul>
+{% for crew in production.crew_set.all %}
+    <li><em>{{ crew.job }}</em> : <a href="/main/people/{{crew.person.id}}/">{{ crew.person.name }}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}
