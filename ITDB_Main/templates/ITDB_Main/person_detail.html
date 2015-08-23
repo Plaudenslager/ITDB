@@ -4,11 +4,15 @@
 <h1>{{ person.name }}</h1>
 {% if person.headshot %}
     <image src={{ person.headshot.path }}, alt="photo of "{{person.name}}></image>
-image url: {{person.headhsot.url}}
-image path: {{person.headshot.path}}
+<p>image url: {{person.headhsot.url}}</p>
+<p>image path: {{person.headshot.path}}</p>
+
 {% else %}
     <p>(No image available)</p>
 {% endif %}
+
+<p>MEDIA_ROOT: {% MEDIA_ROOT %}</p>
+<p>MEDIA_URL: {% MEDIA_URL %}</p>
 
 <h2>Biography:</h2>
 {{person.short_bio}}
