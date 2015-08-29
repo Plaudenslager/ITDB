@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>{{ theater.name }}</h1>
+
+{% if theater.theater_image %}
+    <image>{{ theater.theater_image.url }} </image>
+{% else %}
+    <p>(No image available)</p>
+{% endif %}
+
+<p>{{ theater.street_address }}</p>
+<p>{{ theater.city }}, {{ theater.state_or_province }}</p>
+<p>{{ theater.country }}</p>
+<h2>All productions at this theater</h2>
+<ul>
+{% for production in theater.production_set.all %}
+    <li><em><a href="/main/play/{{production.play.id}}/">{{ production.play.title }}</a></em> : {{production.production_company}} : {{ production.start_date }} - {{ production.end_date}}</li>
+{% endfor %}
+</ul>
+
+{% endblock %}
