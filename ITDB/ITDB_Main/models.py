@@ -60,7 +60,8 @@ class Crew(models.Model):
     is_writer = models.BooleanField(default=False)
     is_producer = models.BooleanField(default=False)
     def __unicode__(self):
-        return "{0} in {1} at The {2} ({3}), played by {4}".format(self.job, self.production.play.title, self.production.theater.name, self.production.theater.city, self.person)
+        return "{1}, {0} by {4} at The {2} ({3})".format(self.job, self.production.play.title, self.production.theater.name, self.production.theater.city, self.person)
+
 
 class Theater_pictures(models.Model):
     image = models.ImageField(blank=True, upload_to='photos')
