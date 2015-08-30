@@ -59,6 +59,10 @@ class Crew(models.Model):
     is_director = models.BooleanField(default=False)
     is_writer = models.BooleanField(default=False)
     is_producer = models.BooleanField(default=False)
+    def __unicode__(self):
+        return "{1}, {0} by {4} at The {2} ({3})".format(self.job, self.production.play.title, self.production.theater.name, self.production.theater.city, self.person)
+    # Comment to trigger a new commit
+    # Another comment to trigger another commit
 
 class Theater_pictures(models.Model):
     image = models.ImageField(blank=True, upload_to='photos')

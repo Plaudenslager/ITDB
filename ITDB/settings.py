@@ -105,3 +105,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_ROOT = '/home/django/ITDB/ITDB/media/'
+MEDIA_URL = '107.170.200.75/media/'
