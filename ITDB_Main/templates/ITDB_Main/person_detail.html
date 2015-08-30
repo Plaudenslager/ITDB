@@ -3,7 +3,7 @@
 
 <h1>{{ person.name }}</h1>
 {% if person.headshot %}
-    <image>{{ person.headshot.url }} </image>
+    <img src="{{ person.headshot.url }}" alt="Image of {{ person.name }}">
 {% else %}
     <p>(No image available)</p>
 {% endif %}

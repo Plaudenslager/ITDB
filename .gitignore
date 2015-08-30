@@ -4,7 +4,7 @@
 
 # Django local config #
 #######################
-settings.py
+ITDB/settings.py
 urls.py
 wsgi.py
 manage.py
