@@ -22,4 +22,15 @@
 {% endfor %}
 </ul>
 
+<h2>Worked as crew on:</h2>
+
+<ul>
+{% for job in person.crew_set.all %}
+    <li><em><a href="/main/production/{{job.production.id}}/">{{ job.production.play.title }}</a></em> |
+        <a href="/main/theater/{{job.production.theater.id}}/">{{ job.production.theater.name }} ({{ job.production.theater.city }})</a> |
+        {{ job.job }} |
+        {{ job.production.display_year }}
+    </li>
+{% endfor %}
+</ul>
 {% endblock %}
