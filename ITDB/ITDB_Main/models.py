@@ -63,6 +63,7 @@ class Crew(models.Model):
         return "{0}: {4} for {1) at The {2} ({3})".format(self.job, self.production.play.title, self.production.theater.name, self.production.theater.city, self.person)
     # Comment to trigger a new commit
     # Another comment to trigger another commit
+    # Yet another comment to trigger another commit (trouble getting production to update files from git)
 
 class Theater_pictures(models.Model):
     image = models.ImageField(blank=True, upload_to='photos')
