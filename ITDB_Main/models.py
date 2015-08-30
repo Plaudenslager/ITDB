@@ -50,8 +50,8 @@ class Cast(models.Model):
     billed_as = models.CharField(max_length = 40, blank=True)
     is_understudy = models.BooleanField(default=False)
     is_alternating = models.BooleanField(default=False)
-    start_date = models.DateField(blank=True)
-    end_date = models.DateField(blank=True)
+    start_year = models.IntegerField(blank=True)
+    end_year = models.IntegerField(blank=True)
     def __unicode__(self):
         return "{0} in {1} at The {2} ({3}), played by {4}".format(self.character, self.production.play.title, self.production.theater.name, self.production.theater.city, self.person)
 
