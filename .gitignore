@@ -5,8 +5,6 @@
 # Django local config #
 #######################
 ITDB/settings.py
-urls.py
-wsgi.py
-manage.py
-db.sqlite3
-__init__.py
+ITDB/*
+static/*
+media/*
