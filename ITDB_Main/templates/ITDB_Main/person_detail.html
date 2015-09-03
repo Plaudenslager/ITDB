@@ -4,6 +4,7 @@
 <h1>{{ person.name }}</h1>
 {% if person.headshot %}
     <img src="{{ person.headshot.url }}" alt="Image of {{ person.name }}">
+    <p>Image size: w: {{ person.headshot.width }}  h: {{ person.headshot.height }}</p>
 {% else %}
     <p>(No image available)</p>
 {% endif %}
