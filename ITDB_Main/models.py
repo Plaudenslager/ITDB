@@ -48,6 +48,10 @@ class Cast(models.Model):
     character = models.CharField(max_length=40)
     production = models.ForeignKey(Production)
     billed_as = models.CharField(max_length = 40, blank=True)
+    is_understudy = models.BooleanField(default=False)
+    is_alternating = models.BooleanField(default=False)
+    start_year = models.IntegerField(default=0)
+    end_year = models.IntegerField(default=0)
     def __unicode__(self):
         return "{0} in {1} at The {2} ({3}), played by {4}".format(self.character, self.production.play.title, self.production.theater.name, self.production.theater.city, self.person)
 
@@ -60,7 +64,7 @@ class Crew(models.Model):
     is_writer = models.BooleanField(default=False)
     is_producer = models.BooleanField(default=False)
     def __unicode__(self):
-        return "{0} in {1} at The {2} ({3}), played by {4}".format(self.job, self.production.play.title, self.production.theater.name, self.production.theater.city, self.person)
+        return "{0}: {4} for {1} at The {2} ({3})".format(self.job, self.production.play.title, self.production.theater.name, self.production.theater.city, self.person)
 
 class Theater_pictures(models.Model):
     image = models.ImageField(blank=True, upload_to='photos')

@@ -3,16 +3,10 @@
 
 <h1>{{ person.name }}</h1>
 {% if person.headshot %}
-    <image src={{ person.headshot.path }}, alt="photo of "{{person.name}}></image>
-<p>image url: {{person.headhsot.url}}</p>
-<p>image path: {{person.headshot.path}}</p>
-
+    <img src="{{ person.headshot.url }}" alt="Image of {{ person.name }}">
 {% else %}
     <p>(No image available)</p>
 {% endif %}
-
-<p>MEDIA_ROOT: {{ settings.MEDIA_ROOT }}</p>
-<p>MEDIA_URL: {{ settings.MEDIA_URL }}</p>
 
 <h2>Biography:</h2>
 {{person.short_bio}}
@@ -28,4 +22,15 @@
 {% endfor %}
 </ul>
 
+<h2>Worked as crew on:</h2>
+
+<ul>
+{% for job in person.crew_set.all %}
+    <li><em><a href="/main/production/{{job.production.id}}/">{{ job.production.play.title }}</a></em> |
+        <a href="/main/theater/{{job.production.theater.id}}/">{{ job.production.theater.name }} ({{ job.production.theater.city }})</a> |
+        {{ job.job }} |
+        {{ job.production.display_year }}
+    </li>
+{% endfor %}
+</ul>
 {% endblock %}

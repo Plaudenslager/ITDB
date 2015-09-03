@@ -4,7 +4,7 @@
 <h1>{{ theater.name }}</h1>
 
 {% if theater.theater_image %}
-    <image>{{ theater.theater_image.url }} </image>
+    <img src="{{ theater.theater_image.url }}" alt="Image of {{ theater.name }}">
 {% else %}
     <p>(No image available)</p>
 {% endif %}

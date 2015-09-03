@@ -1,0 +1,10 @@
+# Compiled python files #
+#########################
+*.pyc
+
+# Django local config #
+#######################
+/ITDB/settings.py
+ITDB/*
+static/*
+media/*

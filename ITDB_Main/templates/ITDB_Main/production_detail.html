@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1><em>{{ production.play.title }}</em> at {{ production.theater.name }} ({{ production.theater.city }}) from {{ production.start_date }} to {{ production.end_date }}</h1>
+<h1><em>{{ production.play.title }}</em> at {{ production.theater.name }} ({{ production.theater.city }}): {{ production.display_year }}</h1>
 Produced by: {{ production.production_company }}</p>
 Production year: {{production.display_year }}</p>
 {% if production.notes %}
