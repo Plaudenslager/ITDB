@@ -25,7 +25,7 @@
 
 <ul>
 {% for role in person.cast_set.all %}
-    <li><a href="/main/production/{{role.production.id}}/">Details</a> | <em><a href="/main/plays/{{role.production.play.id}}/">{{ role.production.play.title }}</a></em> |
+    <li><a href="/main/production/{{role.production.id}}/">Details</a> | <em><a href="/main/play/{{role.production.play.id}}/">{{ role.production.play.title }}</a></em> |
         <a href="/main/theater/{{role.production.theater.id}}/">{{ role.production.theater.name }} ({{ role.production.theater.city }})</a> |
         {{ role.character }} |
         {{ role.production.display_year }}
