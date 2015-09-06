@@ -26,10 +26,10 @@ Directed by:
     </ul>
 {% endif %}
 
-{% if production.musicians_set.all %}
+{% if production.musician_set.all %}
     <h2>Musicians</h2>
     <ul>
-        {% for musician in production.musicians_set.all %}
+        {% for musician in production.musician_set.all %}
             <li><em>{{ musician.instrument }}</em> : <a href="/main/people/{{musician.person.id}}/">{{ musician.person.name }}</a></li>
         {% endfor %}
     </ul>
