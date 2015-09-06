@@ -10,6 +10,17 @@
 
 <h2>Biography:</h2>
 {{person.short_bio}}
+
+{% if person.play_set.all %}
+    <h2>Writing credits:</h2>
+
+    <ul>
+        {% for play in person.play_set.all %}
+            <li><em><a href="/main/play/{{play.id}}/">{{ play.title }}</a></em></li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
 <h2>Has Appeared in:</h2>
 
 <ul>
@@ -22,7 +33,7 @@
 {% endfor %}
 </ul>
 
-<h2>Worked as crew on:</h2>
+<h2>Creative Staff on:</h2>
 
 <ul>
 {% for job in person.crew_set.all %}
