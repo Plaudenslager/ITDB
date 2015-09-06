@@ -5,10 +5,10 @@ from .models import Theater, Play, People, Production
 
 # Default first page.  Should be the search page.
 def index(request):
-    element_counts = {'Theater':Theater.objects.count(),
-                      'Play':Play.objects.count(),
+    element_counts = {'Theaters':Theater.objects.count(),
+                      'Plays':Play.objects.count(),
                       'People':People.objects.count(),
-                      'Production':Production.objects.count()
+                      'Productions':Production.objects.count()
                       }
     context = RequestContext(request, element_counts)
     return render(request, 'ITDB_Main/index.html', context)
