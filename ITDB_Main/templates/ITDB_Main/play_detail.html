@@ -10,12 +10,14 @@
 <h2>Synopisis:</h2>
 {{play.synopsis}}</p>
 
-<h2>Musical Numbers:</h2>
-<ul>
-    {% for song in play.musical_numbers_set.all %}
-    <li>{{song.title}} | {{song.composer}}</li>
-    {% endfor %}
-</ul>
+{% if play.musical_numbers_set.all %}
+    <h2>Musical Numbers:</h2>
+    <ul>
+        {% for song in play.musical_numbers_set.all %}
+        <li>{{song.title}} | {{song.composer}}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
 
 <h2>All productions of {{play.title}}:</h2>
 <ul>
