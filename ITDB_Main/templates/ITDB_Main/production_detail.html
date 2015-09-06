@@ -3,7 +3,7 @@
 
 {% block content %}
 
-<h1><em>{{ production.play.title }}</em> at {{ production.theater.name }} ({{ production.theater.city }}): {{ production.display_year }}</h1>
+<h1><em><a href="/main/plays/{{production.play.id}}/">{{ production.play.title }}</a></em> at <a href="/main/theater/{{production.theater.id}}/">{{ production.theater.name }}</a> ({{ production.theater.city }}): {{ production.display_year }}</h1>
 Opened: {{ production.start_date }}</p>
 Closed: {{ production.end_date }}</p>
 Produced by: {{ production.production_company }}</p>
