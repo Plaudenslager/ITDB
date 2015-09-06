@@ -2,6 +2,11 @@
 {% block content %}
 
 <h1>{{ play.title }}</h1>
+<p>Written by:
+    {% if play.writer %}
+        <a href="/main/people/{{play.writer.id}}/">{{ play.writer }}</a></p>
+    {% endif %}
+
 <h2>Synopisis:</h2>
 {{play.synopsis}}
 <h2>All productions of {{play.title}}:</h2>

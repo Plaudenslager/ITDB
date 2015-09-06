@@ -10,11 +10,22 @@
 
 <h2>Biography:</h2>
 {{person.short_bio}}
+
+{% if person.play_set.all %}
+    <h2>Writing credits:</h2>
+
+    <ul>
+        {% for play in person.play_set.all %}
+            <li><em><a href="/main/play/{{play.id}}/">{{ play.title }}</a></em></li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
 <h2>Has Appeared in:</h2>
 
 <ul>
 {% for role in person.cast_set.all %}
-    <li><em><a href="/main/production/{{role.production.id}}/">{{ role.production.play.title }}</a></em> |
+    <li><a href="/main/production/{{role.production.id}}/">Details</a> | <em><a href="/main/production/{{role.production.id}}/">{{ role.production.play.title }}</a></em> |
         <a href="/main/theater/{{role.production.theater.id}}/">{{ role.production.theater.name }} ({{ role.production.theater.city }})</a> |
         {{ role.character }} |
         {{ role.production.display_year }}
@@ -22,11 +33,11 @@
 {% endfor %}
 </ul>
 
-<h2>Worked as crew on:</h2>
+<h2>Creative Staff on:</h2>
 
 <ul>
 {% for job in person.crew_set.all %}
-    <li><em><a href="/main/production/{{job.production.id}}/">{{ job.production.play.title }}</a></em> |
+    <li><a href="/main/production/{{job.production.id}}/">Details</a> | <em><a href="/main/production/{{job.production.id}}/">{{ job.production.play.title }}</a></em> |
         <a href="/main/theater/{{job.production.theater.id}}/">{{ job.production.theater.name }} ({{ job.production.theater.city }})</a> |
         {{ job.job }} |
         {{ job.production.display_year }}
