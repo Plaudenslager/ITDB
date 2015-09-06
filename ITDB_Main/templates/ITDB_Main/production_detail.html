@@ -13,21 +13,35 @@ Produced by: {{ production.production_company }}</p>
     {{ production.notes }}</p>
 {% endif %}
 Directed by:
-<h2>Cast</h2>
-<ul>
-{% for cast in production.cast_set.all|sort_by:'character' %}
-    <li><em>{{ cast.character }}</em> : <a href="/main/people/{{cast.person.id}}/">{{ cast.person.name }}</a>
-    {% if cast.billed_as %}
-         (billed as {{ cast.billed_as }})
-        {% endif %}
-    </li>
-{% endfor %}
-</ul>
+{% if production.cast_set.all %}
+    <h2>Cast</h2>
+    <ul>
+        {% for cast in production.cast_set.all|sort_by:'character' %}
+            <li><em>{{ cast.character }}</em> : <a href="/main/people/{{cast.person.id}}/">{{ cast.person.name }}</a>
+            {% if cast.billed_as %}
+                (billed as {{ cast.billed_as }})
+            {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}
 
-<h2>Creative Staff</h2>
-<ul>
-{% for crew in production.crew_set.all %}
-    <li><em>{{ crew.job }}</em> : <a href="/main/people/{{crew.person.id}}/">{{ crew.person.name }}</a></li>
-{% endfor %}
-</ul>
+{% if production.musician_set.all %}
+    <h2>Musicians</h2>
+    <ul>
+        {% for musician in production.musician_set.all %}
+            <li><em>{{ musician.instrument }}</em> : <a href="/main/people/{{musician.person.id}}/">{{ musician.person.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% if production.crew_set.all %}
+    <h2>Creative Staff</h2>
+    <ul>
+        {% for crew in production.crew_set.all %}
+            <li><em>{{ crew.job }}</em> : <a href="/main/people/{{crew.person.id}}/">{{ crew.person.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
 {% endblock %}
