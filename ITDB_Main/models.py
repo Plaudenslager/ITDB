@@ -76,6 +76,13 @@ class Musician(models.Model):
     def __unicode__(self):
          return "{0}: {4} for {1} at The {2} ({3})".format(self.instrument, self.production.play.title, self.production.theater.name, self.production.theater.city, self.person)
 
+class Musical_Numbers(models.Model):
+    play = models.ForeignKey(Play)
+    title = models.CharField(max_length=40)
+    composer = models.ForeignKey(People, blank=True, null=True)
+    def __unicode__(self):
+        return "{0}, from {1}".format(self.title, self.play)
+
 class Theater_pictures(models.Model):
     image = models.ImageField(blank=True, upload_to='photos')
     theater = models.ForeignKey(Theater)
