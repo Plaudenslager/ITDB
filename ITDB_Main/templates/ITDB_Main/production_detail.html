@@ -29,7 +29,7 @@ Directed by:
 {% if production.musician_set.all %}
     <h2>Musicians</h2>
     <ul>
-        {% for musician in production.musician_set.all %}
+        {% for musician in production.musician_set.all|sort_by:'instrument' %}
             <li><em>{{ musician.instrument }}</em> : <a href="/main/people/{{musician.person.id}}/">{{ musician.person.name }}</a></li>
         {% endfor %}
     </ul>
@@ -38,7 +38,7 @@ Directed by:
 {% if production.crew_set.all %}
     <h2>Creative Staff</h2>
     <ul>
-        {% for crew in production.crew_set.all %}
+        {% for crew in production.crew_set.all|sort_by:'job' %}
             <li><em>{{ crew.job }}</em> : <a href="/main/people/{{crew.person.id}}/">{{ crew.person.name }}</a></li>
         {% endfor %}
     </ul>
