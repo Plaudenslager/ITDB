@@ -8,13 +8,22 @@
     {% endif %}
 
 <h2>Synopisis:</h2>
-{{play.synopsis}}
-<h2>All productions of {{play.title}}:</h2>
+{{play.synopsis}}</p>
 
+{% if play.musical_number_set.all %}
+    <h2>Musical Numbers:</h2>
+    <ul>
+        {% for song in play.musical_number_set.all %}
+        <li>{{song.title}} | {{song.composer}}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+<h2>All productions of {{play.title}}:</h2>
 <ul>
-{% for production in play.production_set.all %}
-    <li><a href="/main/production/{{production.id}}/">Details</a> | <a href="/main/theater/{{production.theater.id}}/">{{ production.theater.name }}</a> ({{ production.theater.city }}) : {{production.production_company}} : {{ production.start_date }} - {{ production.end_date}}</li>
-{% endfor %}
+    {% for production in play.production_set.all %}
+        <li><a href="/main/production/{{production.id}}/">Details</a> | <a href="/main/theater/{{production.theater.id}}/">{{ production.theater.name }}</a> ({{ production.theater.city }}) : {{production.production_company}} : {{ production.start_date }} - {{ production.end_date}}</li>
+    {% endfor %}
 </ul>
 
 {% endblock %}
