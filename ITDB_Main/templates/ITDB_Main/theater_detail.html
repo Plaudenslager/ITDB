@@ -15,7 +15,7 @@
 <h2>All productions at this theater</h2>
 <ul>
 {% for production in theater.production_set.all %}
-    <li><em><a href="/main/play/{{production.play.id}}/">{{ production.play.title }}</a></em> : {{production.production_company}} : {{ production.start_date }} - {{ production.end_date}}</li>
+    <li><a href="/main/production/{{production.id}}/">Details</a> | <em><a href="/main/play/{{production.play.id}}/">{{ production.play.title }}</a></em> : {{production.production_company}} : {{ production.start_date }} - {{ production.end_date}}</li>
 {% endfor %}
 </ul>
 
