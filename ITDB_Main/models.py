@@ -11,18 +11,19 @@ class Theater(models.Model):
     def __unicode__(self):
         return "{0}: {1}, {2}".format(self.name, self.city, self.state_or_province)
 
-class Play(models.Model):
-    title = models.CharField(max_length=100)
-    synopsis = models.TextField(blank=True)
-    def __unicode__(self):
-        return self.title
-
 class People(models.Model):
     name = models.CharField(max_length=40)
     short_bio = models.TextField(blank=True)
     headshot = models.ImageField(blank=True, upload_to='photos')
     def __unicode__(self):
         return self.name
+
+class Play(models.Model):
+    title = models.CharField(max_length=100)
+    synopsis = models.TextField(blank=True)
+    writer = models.ForeignKey(People, blank=True, null=True)
+    def __unicode__(self):
+        return self.title
 
 # A production is defined as a Play that ran at a particular Theater between given Dates
 class Production(models.Model):
@@ -61,6 +62,7 @@ class Crew(models.Model):
     job = models.CharField(max_length=40)
     production = models.ForeignKey(Production)
     is_director = models.BooleanField(default=False)
+    # TODO is_writer is deprecated
     is_writer = models.BooleanField(default=False)
     is_producer = models.BooleanField(default=False)
     def __unicode__(self):
@@ -86,4 +88,3 @@ class Theater_pictures(models.Model):
 
 
 #TODO: Add class for production companies
-#TODO: Add class for musical numbers, connect them to plays
