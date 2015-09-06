@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load custom_tags %}
+
 {% block content %}
 
 <h1><em>{{ production.play.title }}</em> at {{ production.theater.name }} ({{ production.theater.city }}): {{ production.display_year }}</h1>
@@ -13,7 +15,7 @@ Produced by: {{ production.production_company }}</p>
 Directed by:
 <h2>Cast</h2>
 <ul>
-{% for cast in production.cast_set.order_by('cast').all() %}
+{% for cast in production.cast_set.all|sort_by:'character' %}
     <li><em>{{ cast.character }}</em> : <a href="/main/people/{{cast.person.id}}/">{{ cast.person.name }}</a>
     {% if cast.billed_as %}
          (billed as {{ cast.billed_as }})
