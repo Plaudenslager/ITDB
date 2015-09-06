@@ -13,7 +13,7 @@ Produced by: {{ production.production_company }}</p>
 Directed by:
 <h2>Cast</h2>
 <ul>
-{% for cast in production.cast_set.all.order_by('cast__character' %}
+{% for cast in production.cast_set.all.order_by('cast__character') %}
     <li><em>{{ cast.character }}</em> : <a href="/main/people/{{cast.person.id}}/">{{ cast.person.name }}</a>
     {% if cast.billed_as %}
          (billed as {{ cast.billed_as }})
