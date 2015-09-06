@@ -14,6 +14,7 @@ class Theater(models.Model):
 class Play(models.Model):
     title = models.CharField(max_length=100)
     synopsis = models.TextField(blank=True)
+    writer = models.ForeignKey(People)
     def __unicode__(self):
         return self.title
 
@@ -61,6 +62,7 @@ class Crew(models.Model):
     job = models.CharField(max_length=40)
     production = models.ForeignKey(Production)
     is_director = models.BooleanField(default=False)
+    # TODO is_writer is deprecated
     is_writer = models.BooleanField(default=False)
     is_producer = models.BooleanField(default=False)
     def __unicode__(self):
@@ -86,4 +88,3 @@ class Theater_pictures(models.Model):
 
 
 #TODO: Add class for production companies
-#TODO: Add class for musical numbers, connect them to plays
