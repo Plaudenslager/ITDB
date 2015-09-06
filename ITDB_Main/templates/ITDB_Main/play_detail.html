@@ -2,7 +2,7 @@
 {% block content %}
 
 <h1>{{ play.title }}</h1>
-<p>Written by: {{ play.writer }}</p>
+<p>Written by: <a href="/main/people/{{play.writer.id}}/">{{ play.writer }}</p>
 <h2>Synopisis:</h2>
 {{play.synopsis}}
 <h2>All productions of {{play.title}}:</h2>
