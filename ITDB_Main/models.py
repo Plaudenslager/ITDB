@@ -68,6 +68,14 @@ class Crew(models.Model):
     def __unicode__(self):
         return "{0}: {4} for {1} at The {2} ({3})".format(self.job, self.production.play.title, self.production.theater.name, self.production.theater.city, self.person)
 
+# The Musicians table holds the people and the instruments they played for a particular Production
+class Musicians(models.Model):
+    person = models.ForeignKey(People)
+    instrument = models.CharField(max_length=40)
+    production = models.ForeignKey(Production)
+    def __unicode__(self):
+         return "{0}: {4} for {1} at The {2} ({3})".format(self.instrument, self.production.play.title, self.production.theater.name, self.production.theater.city, self.person)
+
 class Theater_pictures(models.Model):
     image = models.ImageField(blank=True, upload_to='photos')
     theater = models.ForeignKey(Theater)
