@@ -5,7 +5,13 @@ from .models import Theater, Play, People, Production
 
 # Default first page.  Should be the search page.
 def index(request):
-    return render(request, 'ITDB_Main/index.html')
+    element_counts = {'Theater':Theater.objects.count(),
+                      'Play':Play.objects.count(),
+                      'People':People.objects.count(),
+                      'Production':Production.objects.count()
+                      }
+    context = RequestContext(request, element_counts)
+    return render(request, 'ITDB_Main/index.html', context)
 
 # page for Theaters & theater details.  Will show the details about a theater, and a list of Productions.
 # TODO: Add ability to group by city
