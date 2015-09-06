@@ -3,6 +3,9 @@
 
 <h1><em>{{ production.play.title }}</em> at {{ production.theater.name }} ({{ production.theater.city }}): {{ production.display_year }}</h1>
 Produced by: {{ production.production_company }}</p>
+Opened: {{ production.start_date }}</p>
+Closed: {{ production.end_date }}</p>
+
 {% if production.notes %}
     <h2>Notes</h2>
     {{ production.notes }}</p>
