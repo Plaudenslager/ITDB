@@ -24,7 +24,7 @@
 {% endif %}
 
 {% if person.cast_set.all %}
-    <h2>Has Appeared in:</h2>
+    <h2>Cast member:</h2>
 
     <ul>
         {% for role in person.cast_set.all|sort_by:'character' %}
@@ -37,7 +37,7 @@
 {% endif %}
 
 {% if person.musician_set.all %}
-    <h2>Creative Staff on:</h2>
+    <h2>Musician:</h2>
 
     <ul>
         {% for instrument in person.musician_set.all|sort_by:'instrument' %}
@@ -50,7 +50,7 @@
 {% endif %}
 
 {% if person.crew_set.all %}
-    <h2>Creative Staff on:</h2>
+    <h2>Creative Staff:</h2>
 
     <ul>
         {% for job in person.crew_set.all|sort_by:'job' %}
