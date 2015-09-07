@@ -36,7 +36,7 @@ class Production_Company(models.Model):
 class Production(models.Model):
     start_date = models.DateField()
     end_date = models.DateField()
-    production_company = models.ForeignKey(Production_Company, null=True)
+    prod_company = models.ForeignKey(Production_Company, null=True)
     play = models.ForeignKey(Play)
     theater = models.ForeignKey(Theater)
     notes = models.TextField(blank=True)
