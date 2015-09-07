@@ -27,33 +27,40 @@ Produced by:
 Directed by:
 {% if production.cast_set.all %}
     <h2>Cast</h2>
-    <ul>
+    <table>
         {% for cast in production.cast_set.all|sort_by:'character' %}
-            <li><em>{{ cast.character }}</em> : <a href="/main/people/{{cast.person.id}}/">{{ cast.person.name }}</a>
-            {% if cast.billed_as %}
-                (billed as {{ cast.billed_as }})
-            {% endif %}
-            </li>
+        <tr>
+            <td><em>{{ cast.character}}</em></td></td><td><a href="/main/people/{{cast.person.id}}/">{{ cast.person.name }}</a></td>
+            <td>{% if cast.person.headshot %}<img src="{{ cast.person.headshot.url }}" alt="" width="50" height="50">{% endif %} </td>
+        </tr>
+        <tr><td> </td><td> {% if cast.billed_as %}(billed as {{ cast.billed_as }}){% endif %}</td>
+        </tr>
         {% endfor %}
-    </ul>
+    </table>
 {% endif %}
 
 {% if production.musician_set.all %}
     <h2>Musicians</h2>
-    <ul>
+    <table>
         {% for musician in production.musician_set.all|sort_by:'instrument' %}
-            <li><em>{{ musician.instrument }}</em> : <a href="/main/people/{{musician.person.id}}/">{{ musician.person.name }}</a></li>
+        <tr>
+            <td><em>{{ musician.instrument}}</em></td></td><td><a href="/main/people/{{musician.instrument.id}}/">{{ musician.person.name }}</a></td>
+            <td>{% if musician.person.headshot %}<img src="{{ musician.person.headshot.url }}" alt="" width="50" height="50">{% endif %} </td>
+        </tr>
         {% endfor %}
-    </ul>
+    </table>
 {% endif %}
 
 {% if production.crew_set.all %}
     <h2>Creative Staff</h2>
-    <ul>
-        {% for crew in production.crew_set.all|sort_by:'job' %}
-            <li><em>{{ crew.job }}</em> : <a href="/main/people/{{crew.person.id}}/">{{ crew.person.name }}</a></li>
+    <table>
+        {% for staff in production.crew_set.all|sort_by:'job' %}
+        <tr>
+            <td><em>{{ staff.job }}</em></td></td><td><a href="/main/people/{{staff.person.id}}/">{{ staff.person.name }}</a></td>
+            <td>{% if staff.person.headshot %}<img src="{{ staff.person.headshot.url }}" alt="" width="50" height="50">{% endif %} </td>
+        </tr>
         {% endfor %}
-    </ul>
+    </table>
 {% endif %}
 
 {% endblock %}
