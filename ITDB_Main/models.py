@@ -31,6 +31,8 @@ class Production_Company(models.Model):
     sponsor = models.BooleanField(default=False)
     link = models.URLField(blank=True)
     image = models.ImageField(blank=True)
+    def __unicode__(self):
+        return self.name
 
 # A production is defined as a Play that ran at a particular Theater between given Dates
 class Production(models.Model):
