@@ -8,19 +8,15 @@ Opened: {{ production.start_date }}</p>
 Closed: {{ production.end_date }}</p>
 Produced by:
 {% if production.prod_company.sponsor %}
-    THIS IS A SPONSOR
     <a href="{{ production.prod_company.link }}">
         {% if production.prod_company.image %}
-            THEY HAVE AN IMAGE
             <img src = "{{ production.prod_company.image.url }}" alt = "{{ production.prod_company.name }}"
                  height = "125" width="500">
         {% else %}
-            THEY DON'T HAVE AN IMAGE
             {{ production.prod_company.name }}
         {% endif %}
         </a>
 {% else %}
-    NOT A SPONSOR
     {{ production.prod_company.name }}
 {% endif %}
 
