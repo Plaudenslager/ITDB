@@ -18,6 +18,7 @@ class People(models.Model):
     def __unicode__(self):
         return self.name
 
+
 class Play(models.Model):
     title = models.CharField(max_length=100)
     synopsis = models.TextField(blank=True)
@@ -56,10 +57,11 @@ class Sponsor(models.Model):
 class Production(models.Model):
     start_date = models.DateField()
     end_date = models.DateField()
-    production_company = models.CharField(max_length=100)
+    production_company = models.ForeignKey(Production_Company, null=True)
     play = models.ForeignKey(Play)
     theater = models.ForeignKey(Theater)
     notes = models.TextField(blank=True)
+
     def display_year(self):
         start = self.start_date.year
         end = self.end_date.year
