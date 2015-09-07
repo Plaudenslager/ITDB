@@ -6,9 +6,9 @@
     <table>
         {% for production in all_productions_by_date %}
             <tr>
-                <td><a href="/main/production/{{production.id}}/">{{ production.play }}</td>
-                <td>{{ production.theater.name }}</td>
-                <td>{{ production.theater.city }}, {{ production.theater.state }}</td>
+                <td><a href="/main/production/{{production.id}}/">{{ production.play }}</td><td>...</td>
+                <td>{{ production.theater.name }}</td><td> | </td>
+                <td>{{ production.theater.city }}, {{ production.theater.state }}</td><td> | </td>
                 <td>{{ production.display_year }}</td>
             </tr>
         {% endfor %}
