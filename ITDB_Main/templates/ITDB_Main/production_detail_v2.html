@@ -30,10 +30,12 @@ Directed by:
     <table>
         {% for cast in production.cast_set.all|sort_by:'character' %}
         <tr>
-            <td><em>{{ cast.character}}</em></td></p>Second line in cell</td><td><a href="/main/people/{{cast.person.id}}/">{{ cast.person.name }}</a></td>
+            <td><em>{{ cast.character}}</em></td></td><td><a href="/main/people/{{cast.person.id}}/">{{ cast.person.name }}</a></td>
             {% if cast.billed_as %}
                 <td>(billed as {{ cast.billed_as }})</td>
             {% endif %}
+        </tr>
+        <tr><td>second line (under character)</td><td>line under actor</td>
         </tr>
         {% endfor %}
     </table>
