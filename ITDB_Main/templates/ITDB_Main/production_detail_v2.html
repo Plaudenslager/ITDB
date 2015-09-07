@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% load custom_tags %}
+
+{% block content %}
+
+<h1><em><a href="/main/play/{{production.play.id}}/">{{ production.play.title }}</a></em> at <a href="/main/theater/{{production.theater.id}}/">{{ production.theater.name }}</a> ({{ production.theater.city }}): {{ production.display_year }}</h1>
+Opened: {{ production.start_date }}</p>
+Closed: {{ production.end_date }}</p>
+Produced by:
+{% if production.prod_company.sponsor %}
+    <a href="{{ production.prod_company.link }}">
+        {% if production.prod_company.image %}
+            <img src = "{{ production.prod_company.image.url }}" alt = "{{ production.prod_company.name }}"
+                 height = "125" width="500">
+        {% else %}
+            {{ production.prod_company.name }}
+        {% endif %}
+        </a>
+{% else %}
+    {{ production.prod_company.name }}
+{% endif %}</p>
+
+{% if production.notes %}
+    <h2>Notes</h2>
+    {{ production.notes }}</p>
+{% endif %}
+Directed by:
+{% if production.cast_set.all %}
+    <h2>Cast</h2>
+    <table>
+        {% for cast in production.cast_set.all|sort_by:'character' %}
+        <tr>
+            <td><em>{{ cast.character}}</em></td><td><a href="/main/people/{{cast.person.id}}/">{{ cast.person.name }}</a></td>
+            {% if cast.billed_as %}
+                <td>(billed as {{ cast.billed_as }})</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+
+{% if production.musician_set.all %}
+    <h2>Musicians</h2>
+    <ul>
+        {% for musician in production.musician_set.all|sort_by:'instrument' %}
+            <li><em>{{ musician.instrument }}</em> : <a href="/main/people/{{musician.person.id}}/">{{ musician.person.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% if production.crew_set.all %}
+    <h2>Creative Staff</h2>
+    <ul>
+        {% for crew in production.crew_set.all|sort_by:'job' %}
+            <li><em>{{ crew.job }}</em> : <a href="/main/people/{{crew.person.id}}/">{{ crew.person.name }}</a></li>
+        {% endfor %}
+    </ul>
+{% endif %}
+
+{% endblock %}

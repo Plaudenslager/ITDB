@@ -64,7 +64,7 @@ def production_detail(request, production_id):
 
     production = get_object_or_404(Production, pk=production_id)
 
-    return render(request, 'ITDB_Main/production_detail.html', {'production' : production})
+    return render(request, 'ITDB_Main/production_detail_v2.html', {'production' : production})
 
 #TODO: add view for production companies
 #TODO: add a search field to the index.html page (maybe to every page?)
