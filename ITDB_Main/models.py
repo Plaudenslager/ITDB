@@ -28,6 +28,9 @@ class Play(models.Model):
 
 class Production_Company(models.Model):
     name = models.CharField(max_length=40)
+    sponsor = models.BooleanField(default=False)
+    link = models.URLField()
+    image = models.ImageField(blank=True)
 
 class Sponsor(models.Model):
     # will hold active and expired sponsors
