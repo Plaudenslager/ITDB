@@ -32,30 +32,6 @@ class Production_Company(models.Model):
     link = models.URLField()
     image = models.ImageField(blank=True)
 
-class Sponsor(models.Model):
-    # will hold active and expired sponsors
-    # will support multiple types of sponsorships
-    production_company = models.ForeignKey(Production_Company)
-    customer = models.CharField(max_length= 50)
-    order_date = models.DateTimeField(auto_now_add=True)
-    start_date = models.DateTimeField()
-    expire_date = models.DateTimeField()
-    fee = models.DecimalField(max_digits=5, decimal_places=2)
-    link = models.URLField()
-    image = models.ImageField(blank=True)
-    override = models.CharField(choices=(('EN', 'Enabled'),('DI', 'Disabled'),('UN', 'Unset')), default='UN', max_length=2)
-    def active(self):
-        if self.override == 'EN':
-            return True
-        elif self.override == 'DI':
-            return False
-
-        if datetime.datetime.now() >= self.start_date:
-            if datetime.datetime.now() < self.expire_date:
-                return True
-        else:
-            return False
-
 # A production is defined as a Play that ran at a particular Theater between given Dates
 class Production(models.Model):
     start_date = models.DateField()
