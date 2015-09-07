@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Theater, Play, People, Production, Cast, Crew, Musician, Musical_Number
+from .models import Theater, Play, People, Production, Cast, Crew, Musician, Musical_Number, Production_Company
 # Register your models here.
 
 admin.site.register(Theater)
@@ -11,5 +11,7 @@ admin.site.register(Cast)
 admin.site.register(Crew)
 admin.site.register(Musician)
 admin.site.register(Musical_Number)
+admin.site.register(Production_Company)
+
 # admin.site.register(Theater_pictures)
 

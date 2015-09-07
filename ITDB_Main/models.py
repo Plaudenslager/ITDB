@@ -18,6 +18,7 @@ class People(models.Model):
     def __unicode__(self):
         return self.name
 
+
 class Play(models.Model):
     title = models.CharField(max_length=100)
     synopsis = models.TextField(blank=True)
@@ -25,14 +26,23 @@ class Play(models.Model):
     def __unicode__(self):
         return self.title
 
+class Production_Company(models.Model):
+    name = models.CharField(max_length=40)
+    sponsor = models.BooleanField(default=False)
+    link = models.URLField(blank=True)
+    image = models.ImageField(blank=True)
+    def __unicode__(self):
+        return self.name
+
 # A production is defined as a Play that ran at a particular Theater between given Dates
 class Production(models.Model):
     start_date = models.DateField()
     end_date = models.DateField()
-    production_company = models.CharField(max_length=100)
+    prod_company = models.ForeignKey(Production_Company, null=True)
     play = models.ForeignKey(Play)
     theater = models.ForeignKey(Theater)
     notes = models.TextField(blank=True)
+
     def display_year(self):
         start = self.start_date.year
         end = self.end_date.year

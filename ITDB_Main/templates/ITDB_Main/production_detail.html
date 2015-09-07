@@ -6,7 +6,19 @@
 <h1><em><a href="/main/play/{{production.play.id}}/">{{ production.play.title }}</a></em> at <a href="/main/theater/{{production.theater.id}}/">{{ production.theater.name }}</a> ({{ production.theater.city }}): {{ production.display_year }}</h1>
 Opened: {{ production.start_date }}</p>
 Closed: {{ production.end_date }}</p>
-Produced by: {{ production.production_company }}</p>
+Produced by:
+{% if production.prod_company.sponsor %}
+    <a href="{{ production.prod_company.link }}">
+        {% if production.prod_company.image %}
+            <img src = "{{ production.prod_company.image.url }}" alt = "{{ production.prod_company.name }}"
+                 height = "125" width="500">
+        {% else %}
+            {{ production.prod_company.name }}
+        {% endif %}
+        </a>
+{% else %}
+    {{ production.prod_company.name }}
+{% endif %}</p>
 
 {% if production.notes %}
     <h2>Notes</h2>
