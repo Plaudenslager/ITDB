@@ -29,7 +29,7 @@ class Play(models.Model):
 class Production_Company(models.Model):
     name = models.CharField(max_length=40)
     sponsor = models.BooleanField(default=False)
-    link = models.URLField()
+    link = models.URLField(blank=True)
     image = models.ImageField(blank=True)
 
 # A production is defined as a Play that ran at a particular Theater between given Dates
