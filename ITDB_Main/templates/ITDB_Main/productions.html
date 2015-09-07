@@ -3,11 +3,14 @@
 
 <h1>All Productions</h1>
 {% if all_productions_by_date %}
-    <ul>
+    <table>
         {% for production in all_productions_by_date %}
-            <li> <a href="/main/production/{{production.id}}/">{{production}}</a></li>
-        {% endfor %}
-    </ul>
+        <tr>
+        <td><a href="/main/production/{{production.id}}/">{{ production.play }}</td>
+        <td>{{ production.theater }}</td>
+        <td>{{ production.display_year }}</td>
+        </tr>
+    </table>
 {% else %}
     <p>No productions are available</p>
 {% endif %}
