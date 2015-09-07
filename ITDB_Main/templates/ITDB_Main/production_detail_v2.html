@@ -31,7 +31,7 @@ Directed by:
         {% for cast in production.cast_set.all|sort_by:'character' %}
         <tr>
             <td><em>{{ cast.character}}</em></td></td><td><a href="/main/people/{{cast.person.id}}/">{{ cast.person.name }}</a></td>
-            <td><img src="{{ cast.person.headshot.url }}" alt="" width="50" height="50" </td>
+            <td>{% if cast.person.headshot %}<img src="{{ cast.person.headshot.url }}" alt="" width="50" height="50">{% endif %} </td>
         </tr>
         <tr><td> </td><td> {% if cast.billed_as %}(billed as {{ cast.billed_as }}){% endif %}</td>
         </tr>
