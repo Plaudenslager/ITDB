@@ -23,7 +23,6 @@ class Play(models.Model):
     title = models.CharField(max_length=100)
     synopsis = models.TextField(blank=True)
     writer = models.ForeignKey(People, blank=True, null=True)
-    composer = models.ForeignKey(People, blank=True, null=True)
     def __unicode__(self):
         return self.title
 
