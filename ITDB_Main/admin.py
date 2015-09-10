@@ -14,14 +14,14 @@ class ProductionAdmin(admin.ModelAdmin):
                      'classes': ('collapse',)}
          ),
     ]
-    inlines = CastInline
+    inlines = [CastInline]
 
 
 admin.site.register(Theater)
 admin.site.register(Play)
 admin.site.register(People)
 admin.site.register(Production, ProductionAdmin)
-admin.site.register(Cast)
+# admin.site.register(Cast)
 admin.site.register(Crew)
 admin.site.register(Musician)
 admin.site.register(Musical_Number)
