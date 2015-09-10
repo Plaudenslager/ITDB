@@ -16,6 +16,7 @@ class ProductionAdmin(admin.ModelAdmin):
     ]
     inlines = CastInline
 
+
 admin.site.register(Theater)
 admin.site.register(Play)
 admin.site.register(People)
