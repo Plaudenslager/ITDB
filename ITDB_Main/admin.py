@@ -3,9 +3,10 @@ from django.contrib import admin
 from .models import Theater, Play, People, Production, Cast, Crew, Musician, Musical_Number, Production_Company
 # Register your models here.
 
+
 class CastInline(admin.StackedInline):
     model = Cast
-    extra = 3
+    extra = 1
 
 class ProductionAdmin(admin.ModelAdmin):
     fieldsets = [
@@ -15,6 +16,9 @@ class ProductionAdmin(admin.ModelAdmin):
          ),
     ]
     inlines = [CastInline]
+    list_display = ('play', 'theater', 'start_date')
+
+
 
 
 admin.site.register(Theater)
