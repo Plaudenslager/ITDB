@@ -5,8 +5,10 @@ from .models import Theater, Play, People, Production, Cast, Crew, Musician, Mus
 
 class ProductionAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,      {'fields': ('play', 'prod_company', 'theater')}),
-        ('Details', {'fields': (('start_date', 'end_date'), 'notes')}),
+        (None,      {'fields': ('play', 'theater', ('start_date', 'end_date'))}),
+        ('Details', {'fields': ('prod_company', 'notes'),
+                     'classes': ('collapse',)}
+         ),
     ]
 
 admin.site.register(Theater)
