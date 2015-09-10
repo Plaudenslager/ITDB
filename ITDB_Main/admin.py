@@ -6,7 +6,7 @@ from .models import Theater, Play, People, Production, Cast, Crew, Musician, Mus
 
 class CastInline(admin.StackedInline):
     fieldsets = [
-        (None,                  {'fields': (('character', 'person'),)}),
+        (None,                  {'fields': (('person','character'),)}),
         ('Optional Details',    {'fields': ('billed_as', ('is_understudy', 'is_alternating'), ('start_year', 'end_year')),
                                  'classes': ('collapse')}
          )
