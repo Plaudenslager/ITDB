@@ -3,15 +3,26 @@
 
 {% block content %}
 
-<h1>{{ person.name }}</h1>
-{% if person.headshot %}
-    <img src="{{ person.headshot.url }}" alt="Image of {{ person.name }}" height="250" width="250">
-{% else %}
-    <p>(No image available)</p>
-{% endif %}
-
-<h2>Biography:</h2>
-{{person.short_bio}}
+<table>
+    <tr>
+        <td rowspan="2">
+            {% if person.headshot %}
+                <img src="{{ person.headshot.url }}" alt="Image of {{ person.name }}" height="250" width="250">
+            {% else %}
+                (No image available)
+            {% endif %}
+        </td>
+        <td>
+            <h1>{{ person.name }}</h1>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h2>Biography:</h2>
+            {{person.short_bio}}
+        </td>
+    </tr>
+</table>
 
 {% if person.play_set.all %}
     <h2>Writing credits:</h2>
