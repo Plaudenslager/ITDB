@@ -36,7 +36,10 @@
 
 {% if person.cast_set.all %}
     <h2>Cast member:</h2>
-    <table border="1">
+    <table border="0">
+        <tr>
+            <th>Production</th><th>Play</th><th>Theater (City)</th><th>Character</th>
+        </tr>
         {% for role in person.cast_set.all|sort_by:'character' %}
         <tr>
             <td><a href="/main/production/{{role.production.id}}/">Details</a></td>
