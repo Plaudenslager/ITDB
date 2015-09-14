@@ -17,7 +17,7 @@
         </td>
     </tr>
     <tr>
-        <td>{% if person.cast_set.all %}| Actor |{% endif %}{% if person.play_set.all %}Writer |{% endif %}</td>
+        <td>{% if person.cast_set.all %} Actor{% endif %}{% if person.play_set.all %} | Writer{% endif %}</td>
     </tr>
     <tr>
         <td>
