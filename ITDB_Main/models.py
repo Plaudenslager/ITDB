@@ -8,6 +8,7 @@ class Theater(models.Model):
     city = models.CharField(max_length=40)
     state_or_province = models.CharField(max_length=50, blank=True)
     country = models.CharField(max_length=50)
+    seating_capacity = models.IntegerField(blank=True)
     def __unicode__(self):
         return "{0}: {1}, {2}".format(self.name, self.city, self.state_or_province)
 
@@ -28,7 +29,7 @@ class Play(models.Model):
     title = models.CharField(max_length=100)
     synopsis = models.TextField(blank=True)
     writer = models.ForeignKey(People, blank=True, null=True)
-    play_type = models.CharField(max_length=2, choices=PLAY_TYPE_CHOICES)
+    play_type = models.CharField(max_length=2, choices=PLAY_TYPE_CHOICES,blank=True)
 
     def __unicode__(self):
         return self.title
