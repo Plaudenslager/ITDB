@@ -8,7 +8,7 @@ class Theater(models.Model):
     city = models.CharField(max_length=40)
     state_or_province = models.CharField(max_length=50, blank=True)
     country = models.CharField(max_length=50)
-    seating_capacity = models.IntegerField(blank=True)
+    seating_capacity = models.IntegerField(blank=True, null=True)
     def __unicode__(self):
         return "{0}: {1}, {2}".format(self.name, self.city, self.state_or_province)
 
