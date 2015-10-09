@@ -20,9 +20,16 @@ class People(models.Model):
 
 
 class Play(models.Model):
+    PLAY_TYPE_CHOICES = (
+        ('S', 'Straight Play'),
+        ('M', 'Musical'),
+        ('O', 'Opera'),
+    )
     title = models.CharField(max_length=100)
     synopsis = models.TextField(blank=True)
     writer = models.ForeignKey(People, blank=True, null=True)
+    play_type = models.CharField(max_length=2, choices=PLAY_TYPE_CHOICES)
+
     def __unicode__(self):
         return self.title
 
