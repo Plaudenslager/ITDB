@@ -41,11 +41,11 @@
     <h2>Cast member:</h2>
     <table border="0">
         <tr style="text-align: left">
-            <th style="width: 100px">Production</th>
+            <th style="width: 75px">Production</th>
             <th style="width: 100px">Play</th>
-            <th style="width: 100px">Theater (City)</th>
+            <th style="width: 150px">Theater (City)</th>
             <th style="width: 100px">Character</th>
-            <th style="width: 100px">Year</th>
+            <th style="width: 75px">Year</th>
         </tr>
         {% for role in person.cast_set.all|sort_by:'character' %}
         <tr>
