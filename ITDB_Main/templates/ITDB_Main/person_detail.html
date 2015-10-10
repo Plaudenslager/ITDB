@@ -5,7 +5,7 @@
 
 <table border="0">
     <tr>
-        <td rowspan="3">
+        <td rowspan="2">
             {% if person.headshot %}
                 <img src="{{ person.headshot.url }}" alt="Image of {{ person.name }}" height="250" width="250">
             {% else %}
@@ -16,9 +16,6 @@
             <h1>{{ person.name }}</h1>
             {% if person.cast_set.all %} Actor{% endif %}{% if person.play_set.all %} | Writer{% endif %}
         </td>
-    </tr>
-    <tr>
-        <td>{% if person.cast_set.all %} Actor{% endif %}{% if person.play_set.all %} | Writer{% endif %}</td>
     </tr>
     <tr>
         <td>
