@@ -36,7 +36,7 @@
 {% endif %}
 
 {% if person.cast_set.all %}
-    <h2>Cast member:</h2>
+    <h2>Actor:</h2>
     <table border="0">
         <tr>
             <th style="width: 100px">Production</th>
@@ -70,15 +70,23 @@
 
 {% if person.crew_set.all %}
     <h2>Creative Staff:</h2>
-
-    <ul>
+    <table border="0">
+        <tr>
+            <th style="width: 100px">Production</th>
+            <th style="width: 200px">Play</th>
+            <th style="width: 300px">Theater (City)</th>
+            <th style="width: 75px">Year</th>
+        </tr>
         {% for job in person.crew_set.all|sort_by:'job' %}
-            <li><a href="/main/production/{{job.production.id}}/">Details</a> | <em><a href="/main/play/{{job.production.play.id}}/">{{ job.production.play.title }}</a></em> |
-                <a href="/main/theater/{{job.production.theater.id}}/">{{ job.production.theater.name }} ({{ job.production.theater.city }})</a> |
-                {{ job.job }} | {{ job.production.display_year }}
-            </li>
+        <tr>
+            <td><a href="/main/production/{{job.production.id}}/">Playbill</a></td>
+            <td><em><a href="/main/play/{{job.production.play.id}}/">{{ job.production.play.title }}</a></em><p style="margin-top: 0px">{{ job.job }}</p></td>
+            <td><a href="/main/theater/{{job.production.theater.id}}/">{{ job.production.theater.name }} ({{ job.production.theater.city }})</a></td>
+            <td>{{ job.production.display_year }}</td>
+        </tr>
         {% endfor %}
-    </ul>
+    </table>
+
 {% endif %}
 
 {% endblock %}
