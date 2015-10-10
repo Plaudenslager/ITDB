@@ -39,8 +39,8 @@
 
 {% if person.cast_set.all %}
     <h2>Cast member:</h2>
-    <table border="0" style="width:100%">
-        <tr>
+    <table border="0" style="width:75%">
+        <tr style="text-align: left">
             <th>Production</th><th>Play</th><th>Theater (City)</th><th>Character</th><th>Year</th>
         </tr>
         {% for role in person.cast_set.all|sort_by:'character' %}
