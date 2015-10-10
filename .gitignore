@@ -6,5 +6,4 @@
 #######################
 /ITDB/settings.py
 ITDB/*
-static/*
 media/*
