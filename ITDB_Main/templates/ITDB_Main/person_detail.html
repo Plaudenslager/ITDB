@@ -14,6 +14,7 @@
         </td>
         <td>
             <h1>{{ person.name }}</h1>
+            {% if person.cast_set.all %} Actor{% endif %}{% if person.play_set.all %} | Writer{% endif %}
         </td>
     </tr>
     <tr>
