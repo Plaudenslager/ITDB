@@ -39,13 +39,17 @@
 
 {% if person.cast_set.all %}
     <h2>Cast member:</h2>
-    <table border="0" style="width:75%">
+    <table border="0">
         <tr style="text-align: left">
-            <th>Production</th><th>Play</th><th>Theater (City)</th><th>Character</th><th>Year</th>
+            <th style="width: 100px">Production</th>
+            <th style="width: 100px">Play</th>
+            <th style="width: 100px">Theater (City)</th>
+            <th style="width: 100px">Character</th>
+            <th style="width: 100px">Year</th>
         </tr>
         {% for role in person.cast_set.all|sort_by:'character' %}
         <tr>
-            <td><a href="/main/production/{{role.production.id}}/">Details</a></td>
+            <td><a href="/main/production/{{role.production.id}}/">Playbill</a></td>
             <td><em><a href="/main/play/{{role.production.play.id}}/">{{ role.production.play.title }}</a></em></td>
             <td><a href="/main/theater/{{role.production.theater.id}}/">{{ role.production.theater.name }} ({{ role.production.theater.city }})</a></td>
             <td>{{ role.character }}</td>
