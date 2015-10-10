@@ -27,7 +27,7 @@ Produced by:
 Directed by:
 {% if production.cast_set.all %}
     <h2>Cast</h2>
-    <table>
+    <table style="vertical-align: middle">
         {% for cast in production.cast_set.all|sort_by:'character' %}
         <tr>
             <td>{% if cast.person.headshot %}<img src="{{ cast.person.headshot.url }}" alt="" width="50" height="50">{% endif %} </td>
