@@ -37,7 +37,10 @@
 
 {% if person.cast_set.all %}
     <h2>Cast member:</h2>
-    <table border="0" style="text-align: left; vertical-align: top">
+    <style>
+        td {text-align: left; vertical-align: top}
+    </style>
+    <table border="0">
         <tr>
             <th style="width: 100px">Production</th>
             <th style="width: 150px">Play</th>
