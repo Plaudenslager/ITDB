@@ -29,11 +29,12 @@ Directed by:
     <h2>Cast</h2>
     <table>
         {% for cast in production.cast_set.all|sort_by:'character' %}
-        <tr style="vertical-align: middle">
+        <tr>
             <td>{% if cast.person.headshot %}<img src="{{ cast.person.headshot.url }}" alt="" width="50" height="50">{% endif %} </td>
-            <td style="width: 100px"><a href="/main/people/{{cast.person.id}}/">{{ cast.person.name }}</a></td>
-            <td style="width: 100px"><em>{{ cast.character}}</em></td></td>
-        </tr>
+            <td style="width: 100px; vertical-align: middle"><a href="/main/people/{{cast.person.id}}/">{{ cast.person.name }}</a>
+            </td>
+            <td style="width: 100px; vertical-align: middle"><em>{{ cast.character}}</em></td></td>
+                {% if cast.billed_as %}<p style="margin-top: 0px">(billed as {{ cast.billed_as }})</p>{% endif %}</tr>
         <tr><td> </td><td> {% if cast.billed_as %}(billed as {{ cast.billed_as }}){% endif %}</td>
         </tr>
         {% endfor %}
