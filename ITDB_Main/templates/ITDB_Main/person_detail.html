@@ -7,13 +7,13 @@
     <tr>
         <td rowspan="2">
             {% if person.headshot %}
-                <img src="{{ person.headshot.url }}" alt="Image of {{ person.name }}" height="250" width="250">
+                <img src="{{ person.headshot.url }}" alt="Image of {{ person.first_name }} {{ person.last_name }}" height="250" width="250">
             {% else %}
                 (No image available)
             {% endif %}
         </td>
         <td>
-            <h1 style="margin-bottom:0px">{{ person.name }}</h1>
+            <h1 style="margin-bottom:0px">{{ person.first_name }} {{ person.last_name }}</h1>
             <p style="margin-top:0px">{% if person.cast_set.all %} Actor{% endif %}{% if person.play_set.all %} | Writer{% endif %}</p>
         </td>
     </tr>
