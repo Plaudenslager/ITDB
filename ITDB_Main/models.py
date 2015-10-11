@@ -15,7 +15,7 @@ class Theater(models.Model):
 class People(models.Model):
     name = models.CharField(max_length=40)
     short_bio = models.TextField(blank=True)
-    headshot = models.ImageField(blank=True, upload_to='photos')
+    headshot = models.ImageField(blank=True, default='/photos/person_sillouette.png', upload_to='photos')
     def __unicode__(self):
         return self.name
 
