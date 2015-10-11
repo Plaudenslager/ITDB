@@ -8,21 +8,31 @@ class Theater(models.Model):
     city = models.CharField(max_length=40)
     state_or_province = models.CharField(max_length=50, blank=True)
     country = models.CharField(max_length=50)
+    seating_capacity = models.IntegerField(blank=True, null=True)
     def __unicode__(self):
         return "{0}: {1}, {2}".format(self.name, self.city, self.state_or_province)
 
 class People(models.Model):
     name = models.CharField(max_length=40)
+    first_name = models.CharField(max_length=20, blank=True)
+    last_name = models.CharField(max_length=20, blank=True)
     short_bio = models.TextField(blank=True)
-    headshot = models.ImageField(blank=True, upload_to='photos')
+    headshot = models.ImageField(default='/photos/person_sillouette.png', upload_to='photos')
     def __unicode__(self):
         return self.name
 
 
 class Play(models.Model):
+    PLAY_TYPE_CHOICES = (
+        ('S', 'Straight Play'),
+        ('M', 'Musical'),
+        ('O', 'Opera'),
+    )
     title = models.CharField(max_length=100)
     synopsis = models.TextField(blank=True)
     writer = models.ForeignKey(People, blank=True, null=True)
+    play_type = models.CharField(max_length=2, choices=PLAY_TYPE_CHOICES,blank=True)
+
     def __unicode__(self):
         return self.title
 

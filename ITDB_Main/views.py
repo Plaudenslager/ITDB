@@ -38,8 +38,12 @@ def people(request):
 
 def person_detail(request, person_id):
 
-    person = get_object_or_404(People, pk=person_id)
+    p = People.objects.get(pk=person_id)
+    if(not p.headshot):
+        p.headshot.name = 'photos/person_sillouette.png'
+        p.save()
 
+    person = get_object_or_404(People, pk=person_id)
     return render(request, 'ITDB_Main/person_detail.html', {'person' : person})
 
 # page for Plays
