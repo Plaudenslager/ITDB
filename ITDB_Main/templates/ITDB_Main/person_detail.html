@@ -40,8 +40,8 @@
     <table border="0">
         <tr>
             <th style="width: 100px">Production</th>
-            <th style="width: 200px">Play</th>
-            <th style="width: 300px">Theater (City)</th>
+            <th style="width: 300px">Play</th>
+            <th style="width: 350px">Theater (City)</th>
             <th style="width: 75px">Year</th>
         </tr>
         {% for role in person.cast_set.all|sort_by:'character' %}
@@ -73,8 +73,8 @@
     <table border="0">
         <tr>
             <th style="width: 100px">Production</th>
-            <th style="width: 200px">Play</th>
-            <th style="width: 300px">Theater (City)</th>
+            <th style="width: 300px">Play</th>
+            <th style="width: 350px">Theater (City)</th>
             <th style="width: 75px">Year</th>
         </tr>
         {% for job in person.crew_set.all|sort_by:'job' %}
